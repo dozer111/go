@@ -5,6 +5,8 @@ go run main.go
 go build main.gp
 go install main.go
 
+go r un --wokr main.go
+
 ```
 
 ## Команды с консоли
