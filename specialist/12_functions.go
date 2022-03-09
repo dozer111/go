@@ -24,6 +24,11 @@ func main() {
 		add(2, 3),
 		add(5, 5),
 	)
+
+	// 4 ф-я в качестве параметра
+	callableTest := []int{2, 3, 4, 5}
+	arrayMap(callableTest, add1More)
+	fmt.Println(callableTest)
 }
 
 // 1 вариадический параметр под капотом - slice
@@ -39,4 +44,17 @@ func sumVariadic(values ...int) {
 	}
 
 	fmt.Println(result)
+}
+
+// 4 ф-я как callable
+func arrayMap(data []int, callable func(value int) int) {
+
+	for key, item := range data {
+		data[key] = callable(item)
+	}
+}
+
+func add1More(a int) int {
+	a++
+	return a
 }
